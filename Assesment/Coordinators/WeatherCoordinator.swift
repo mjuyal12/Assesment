@@ -7,7 +7,9 @@
 
 import UIKit
 
-class WeatherCoordinator: BaseCoordinator {
+class WeatherCoordinator: Coordinator {
+    
+    private (set) var childCoordinators: [Coordinator] = []
     
     private let navigationController: UINavigationController
     
@@ -15,7 +17,7 @@ class WeatherCoordinator: BaseCoordinator {
         self.navigationController = navigationController
     }
     
-    override func start() {
+    func start() {
         let weatherVC: WeatherVC = .instantiate()
         let weatherViewModel = WeatherViewModel()
         weatherViewModel.coordinator = self
@@ -26,7 +28,11 @@ class WeatherCoordinator: BaseCoordinator {
     func navigateToDetails(withData weatherData: WeatherModel) {
         let weatherCoordinator = WeatherDetailCoordinator(navigationController: navigationController)
         weatherCoordinator.weatherDetails = weatherData
-        store(coordinator: weatherCoordinator)
+        weatherCoordinator.removeCoordinator = { [weak self] (childCoordinator) in
+            guard let strongSelf = self else { return }
+            strongSelf.childCoordinators = strongSelf.childCoordinators.filter { $0 !== childCoordinator }
+        }
+        childCoordinators.append(weatherCoordinator)
         weatherCoordinator.start()
     }
 }

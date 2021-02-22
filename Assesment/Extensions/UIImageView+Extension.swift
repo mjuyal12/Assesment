@@ -10,6 +10,9 @@ import Kingfisher
 
 extension UIImageView {
     
+    /// Set icon to the Image View
+    /// Configuration added for downsampling the image and saving to cache
+    /// - Parameter urlString: URL string
     func setIcon(usingURL urlString: String) {
         let url = URL(string: urlString)
         let processor = DownsamplingImageProcessor(size: self.bounds.size)

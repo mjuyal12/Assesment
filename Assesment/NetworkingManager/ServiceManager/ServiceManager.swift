@@ -9,6 +9,7 @@ import Foundation
 
 class ServiceManager {
     
+    private var task: URLSessionDataTask?
     
     /// Fetching weather (Currently specifying one way for webservice)
     /// - Parameters:
@@ -24,7 +25,7 @@ class ServiceManager {
         
         let request = URLRequest(url: url)
         
-        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+        task = URLSession.shared.dataTask(with: request) { data, response, error in
             guard let data = data,                            // is there data
                 let response = response as? HTTPURLResponse,  // is there HTTP response
                 (200 ..< 300) ~= response.statusCode,         // is statusCode 2XX
@@ -39,7 +40,11 @@ class ServiceManager {
                 completionHandler(.failure(.somethingWentWrong(error.localizedDescription)))
             }
         }
-        task.resume()
+        task?.resume()
+    }
+    
+    func cancel() {
+        task?.cancel()
     }
     
     /// Generating query for Get Request

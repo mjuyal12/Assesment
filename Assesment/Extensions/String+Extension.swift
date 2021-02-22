@@ -9,6 +9,8 @@ import Foundation
 
 extension String {
     
+    /// Check for the string if is empty
+    /// - Returns: Bool if empty
     func isBlank() -> Bool {
         let trimmed = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         return trimmed.isEmpty
@@ -18,6 +20,7 @@ extension String {
 
 extension Float {
     
+    /// Converts and shows unit
     var toDegree: String {
         let doubleValue = Double(self)
         let formatter = MeasurementFormatter()

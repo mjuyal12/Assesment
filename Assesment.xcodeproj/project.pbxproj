@@ -35,7 +35,6 @@
 		7E8FD1F725E2053200308590 /* XMPPManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FD1F625E2053200308590 /* XMPPManager.swift */; };
 		7E8FD20625E20FC200308590 /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FD20525E20FC200308590 /* Utility.swift */; };
 		7E8FD22225E2276F00308590 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FD22125E2276F00308590 /* String+Extension.swift */; };
-		7E8FD24525E2305C00308590 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FD24425E2305C00308590 /* BaseCoordinator.swift */; };
 		7E8FD25125E2319C00308590 /* WeatherDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FD25025E2319C00308590 /* WeatherDetailsVC.swift */; };
 		7E8FD25925E2348300308590 /* WeatherDetailCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FD25825E2348300308590 /* WeatherDetailCoordinator.swift */; };
 		7E8FD25E25E235D900308590 /* WeatherDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8FD25D25E235D900308590 /* WeatherDetailsViewModel.swift */; };
@@ -96,7 +95,6 @@
 		7E8FD1F625E2053200308590 /* XMPPManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMPPManager.swift; sourceTree = "<group>"; };
 		7E8FD20525E20FC200308590 /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		7E8FD22125E2276F00308590 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		7E8FD24425E2305C00308590 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		7E8FD25025E2319C00308590 /* WeatherDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsVC.swift; sourceTree = "<group>"; };
 		7E8FD25825E2348300308590 /* WeatherDetailCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailCoordinator.swift; sourceTree = "<group>"; };
 		7E8FD25D25E235D900308590 /* WeatherDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsViewModel.swift; sourceTree = "<group>"; };
@@ -236,7 +234,6 @@
 			isa = PBXGroup;
 			children = (
 				7E88921725E0C612005A3EA8 /* Coordinator.swift */,
-				7E8FD24425E2305C00308590 /* BaseCoordinator.swift */,
 				7E88921F25E0C62D005A3EA8 /* AppCoordinator.swift */,
 				7E88931125E1585C005A3EA8 /* LoginCoordinator.swift */,
 				7E88925F25E0D78C005A3EA8 /* WeatherCoordinator.swift */,
@@ -632,7 +629,6 @@
 				7E88923225E0C716005A3EA8 /* UIViewController+Extensions.swift in Sources */,
 				3E3BCE6725E39084001A9D8D /* UIImageView+Extension.swift in Sources */,
 				7E88928B25E0E520005A3EA8 /* WeatherTVC.swift in Sources */,
-				7E8FD24525E2305C00308590 /* BaseCoordinator.swift in Sources */,
 				7E8FD25125E2319C00308590 /* WeatherDetailsVC.swift in Sources */,
 				7E88921825E0C612005A3EA8 /* Coordinator.swift in Sources */,
 				7E8FD25925E2348300308590 /* WeatherDetailCoordinator.swift in Sources */,

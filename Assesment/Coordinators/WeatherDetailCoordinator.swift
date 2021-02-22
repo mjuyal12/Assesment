@@ -7,17 +7,19 @@
 
 import UIKit
 
-class WeatherDetailCoordinator: BaseCoordinator, UINavigationControllerDelegate {
+class WeatherDetailCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
+    private (set) var childCoordinators: [Coordinator] = []
     private let navigationController: UINavigationController
     
     var weatherDetails: WeatherModel?
+    var removeCoordinator: ((Coordinator?) -> Void)?
     
     init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    override func start() {
+    func start() {
         navigationController.delegate = self
         let weatherDetailsVC: WeatherDetailsVC = .instantiate()
         let viewModel = WeatherDetailsViewModel()
@@ -35,7 +37,8 @@ class WeatherDetailCoordinator: BaseCoordinator, UINavigationControllerDelegate 
             return
         }
         if let _ = fromController as? WeatherDetailsVC {
-            self.childDidFinish(self)
+            //self.childDidFinish(self)
+            removeCoordinator?(self)
         }
     }
     

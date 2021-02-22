@@ -7,8 +7,10 @@
 
 import UIKit
 
-class AppCoordinator: BaseCoordinator {
+class AppCoordinator: Coordinator {
     
+    private (set) var childCoordinators: [Coordinator] = []
+
     private let window: UIWindow
     
     init(window: UIWindow) {
@@ -16,10 +18,10 @@ class AppCoordinator: BaseCoordinator {
     }
     
     /// Starts the flow
-    override func start() {
+    func start() {
         let navigationController = UINavigationController()
         let loginCoordinator = LoginCoordinator(navigationController: navigationController)
-        store(coordinator: loginCoordinator)
+        childCoordinators.append(loginCoordinator)
         loginCoordinator.start()
         
         window.rootViewController = navigationController

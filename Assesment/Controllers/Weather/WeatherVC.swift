@@ -30,6 +30,10 @@ class WeatherVC: UIViewController {
     }
     
     private func configureVM() {
+        viewModel.error = { [weak self] (message) in
+            guard let strongSelf = self else {return}
+            Utility.showAlert(withTitle: "Error", andMessage: message, on: strongSelf)
+        }
         viewModel.fetchedDetails = { [weak self] in
             self?.weatherTableView.reloadData()
         }
@@ -48,14 +52,14 @@ class WeatherVC: UIViewController {
     }
 
 }
-
+// MARK: - UITableViewDataSource & UITableViewDelegate
 extension WeatherVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherTVC") as? WeatherTVC {
+        if let cell: WeatherTVC = tableView.instantiateCell() {
             cell.configure(viewModel.getWeather(at: indexPath.row))
             return cell
         }

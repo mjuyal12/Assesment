@@ -13,7 +13,6 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     
     var viewModel: LoginViewModel?
-    
     var didTapLogin: (() -> Void)?
 
     override func viewDidLoad() {

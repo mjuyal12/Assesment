@@ -10,6 +10,7 @@ import UIKit
 
 class CoreDataManager {
     
+    /// Constant values for the Core data
     struct CoreDataConstant {
         static let model = "Assesment"
         static let entity = "WeatherList"
@@ -27,6 +28,7 @@ class CoreDataManager {
     
     private init() {}
     
+    /// NSPersistentContainer - Contains the Core data Store
     lazy var persistentContainer: NSPersistentContainer = {
         let persistentContainer = NSPersistentContainer(name: CoreDataConstant.model)
         persistentContainer.loadPersistentStores { (_, error) in
@@ -35,10 +37,13 @@ class CoreDataManager {
         return persistentContainer
     }()
     
+    /// NSManagedObjectContext - Object
     var moc: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
+    /// Saving the Weather data to core data
+    /// - Parameter data: Weather Data
     func saveWeather(data: Data) {
         if let fetchedWeatherList = fetchWeatherDetails(),
             !fetchedWeatherList.isEmpty {
@@ -50,6 +55,8 @@ class CoreDataManager {
         saveContext()
     }
     
+    /// Fetched the Details from Core data
+    /// - Returns: [Entity recieved]
     func fetchWeatherDetails() -> [WeatherList]? {
         do {
             let fetchRequest = NSFetchRequest<WeatherList>(entityName: CoreDataConstant.entity)

@@ -10,10 +10,11 @@ import Foundation
 class WeatherViewModel {
     
     var coordinator: WeatherCoordinator?
+    var fetchedDetails: (()->Void)?
+    var error: ((String?)->Void)?
+    
     private var cities: [String] = ["Delhi", "Mumbai", "Bangalore"]
-    
     private var weatherDetails: [WeatherModel] = []
-    
     private var weatherModel: WeatherModel? {
         didSet {
             if let weatherModel = weatherModel {
@@ -21,9 +22,7 @@ class WeatherViewModel {
             }
         }
     }
-    
-    var fetchedDetails: (()->Void)?
-    var error: ((String?)->Void)?
+    private let serviceManager = ServiceManager()
     
     var count: Int {
         return weatherDetails.count
@@ -35,11 +34,13 @@ class WeatherViewModel {
         cities.forEach { (city) in
             group.enter()
             print("Call for City ===> ", city)
-            ServiceManager().fetchWeather(for: city) { (result: Result<WeatherModel, NetworkError>) in
+            serviceManager.fetchWeather(for: city) { [weak self] (result: Result<WeatherModel, NetworkError>) in
                 switch result {
                 case .success(let model):
-                    self.weatherModel = model
-                case .failure(_):
+                    self?.weatherModel = model
+                case .failure(let error):
+                    self?.serviceManager.cancel()
+                    self?.error?(error.message)
                     break
                 }
                 group.leave()

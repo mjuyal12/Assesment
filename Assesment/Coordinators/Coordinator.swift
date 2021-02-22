@@ -8,17 +8,6 @@
 import UIKit
 
 protocol Coordinator: class {
-    var childCoordinators: [Coordinator] { get set }
+    var childCoordinators: [Coordinator] { get }
     func start()
-    func childDidFinish(_ child: Coordinator?)
-}
-
-extension Coordinator {
-    func store(coordinator: Coordinator) {
-        childCoordinators.append(coordinator)
-    }
-    func childDidFinish(_ child: Coordinator?) {
-        childCoordinators = childCoordinators.filter { $0 !== child }
-    }
-    
 }

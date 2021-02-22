@@ -9,7 +9,6 @@ import UIKit
 
 class WeatherDetailsVC: UIViewController {
 
-    @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     @IBOutlet weak var weatherImageView: UIImageView!
@@ -18,13 +17,7 @@ class WeatherDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        //setupHeader()
         configureVM()
-    }
-    
-    private func setupHeader() {
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureVM() {
