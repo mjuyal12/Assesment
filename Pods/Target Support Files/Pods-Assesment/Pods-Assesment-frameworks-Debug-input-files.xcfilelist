@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-Assesment/Pods-Assesment-frameworks.sh
+${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework
+${BUILT_PRODUCTS_DIR}/CocoaLumberjack/CocoaLumberjack.framework
+${BUILT_PRODUCTS_DIR}/KissXML/KissXML.framework
+${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/XMPPFramework/XMPPFramework.framework
+${BUILT_PRODUCTS_DIR}/libidn/libidn.framework
