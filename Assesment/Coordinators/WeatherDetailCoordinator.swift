@@ -26,7 +26,7 @@ class WeatherDetailCoordinator: BaseCoordinator, UINavigationControllerDelegate 
         weatherDetailsVC.viewModel = viewModel
         self.navigationController.pushViewController(weatherDetailsVC, animated: true)
     }
-    
+    /// Using Delegate to detect the controller if popping
     func navigationController(_ navigationController: UINavigationController, willShow viewController: UIViewController, animated: Bool) {
         guard let fromController = navigationController.transitionCoordinator?.viewController(forKey: .from) else {
             return

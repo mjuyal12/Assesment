@@ -9,18 +9,17 @@ import UIKit
 
 class AppCoordinator: BaseCoordinator {
     
-    //var navigationController: UINavigationController
     private let window: UIWindow
     
     init(window: UIWindow) {
-        //self.navigationController = navigationController
         self.window = window
     }
     
+    /// Starts the flow
     override func start() {
         let navigationController = UINavigationController()
         let loginCoordinator = LoginCoordinator(navigationController: navigationController)
-        childCoordinators.append(loginCoordinator)
+        store(coordinator: loginCoordinator)
         loginCoordinator.start()
         
         window.rootViewController = navigationController

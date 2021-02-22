@@ -68,20 +68,10 @@ class WeatherViewModel {
     
     func localDBWeatherDetails() {
         let details = CoreDataManager.shared.fetchWeatherDetails()
-        if let unwrappedDetails = details {
-            print(unwrappedDetails.count)
-            
-            for obj in unwrappedDetails {
-                if let weatherData = obj.weather as? Data {
-                    do {
-                        let jsonDecoder = JSONDecoder()
-                        let weatherObj = try jsonDecoder.decode([WeatherModel].self, from: weatherData)
-                        print(weatherObj.count)
-                    } catch {
-                        print(error.localizedDescription)
-                    }
-                }
-            }
+        if let unwrappedDetails = details?.first,
+            let weatherData = unwrappedDetails.weather as? Data {
+            let object = try? weatherData.decoded(as: [WeatherModel].self)
+            print("Saved Object ===> ", object)
         }
     }
     

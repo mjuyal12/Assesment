@@ -33,9 +33,8 @@ class ServiceManager {
                     return
             }
             do {
-                let decoder = JSONDecoder()
-                let value = try decoder.decode(T.self, from: data)
-                completionHandler(.success(value))
+                let object = try data.decoded(as: T.self)
+                completionHandler(.success(object))
             } catch {
                 completionHandler(.failure(.somethingWentWrong(error.localizedDescription)))
             }
@@ -54,6 +53,15 @@ class ServiceManager {
             URLQueryItem(name: "units", value: "metric")
         ]
         return urlComponents
+    }
+    
+}
+
+extension Data {
+    
+    func decoded<T: Decodable>(as type: T.Type = T.self) throws -> T {
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: self)
     }
     
 }

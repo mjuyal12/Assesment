@@ -26,7 +26,7 @@ class WeatherCoordinator: BaseCoordinator {
     func navigateToDetails(withData weatherData: WeatherModel) {
         let weatherCoordinator = WeatherDetailCoordinator(navigationController: navigationController)
         weatherCoordinator.weatherDetails = weatherData
-        childCoordinators.append(weatherCoordinator)
+        store(coordinator: weatherCoordinator)
         weatherCoordinator.start()
     }
 }

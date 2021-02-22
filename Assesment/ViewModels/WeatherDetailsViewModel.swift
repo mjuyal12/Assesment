@@ -16,7 +16,10 @@ class WeatherDetailsViewModel {
     typealias UpdateValues = ((String?, String?, Float?, String?) -> Void)
     
     func updateUI(compeltion: UpdateValues) {
-        compeltion(weatherDetails?.name, weatherDetails?.weather?.first?.main, weatherDetails?.main?.temp, getImageRL())
+        compeltion(weatherDetails?.name,
+                   weatherDetails?.weather?.first?.main,
+                   weatherDetails?.main?.temp,
+                   getImageRL())
     }
     
     private func getImageRL() -> String? {

@@ -7,9 +7,7 @@
 
 import UIKit
 
-class LoginCoordinator: Coordinator {
-    
-    var childCoordinators: [Coordinator] = []
+class LoginCoordinator: BaseCoordinator {
     
     private let navigationController: UINavigationController
     
@@ -17,7 +15,7 @@ class LoginCoordinator: Coordinator {
         self.navigationController = navigationController
     }
     
-    func start() {
+    override func start() {
         let loginVC: LoginVC = .instantiate()
         let viewModel = LoginViewModel()
         viewModel.coordinator = self
@@ -27,7 +25,7 @@ class LoginCoordinator: Coordinator {
     
     func moveToTab() {
         let weatherCoordinator = WeatherCoordinator(navigationController: navigationController)
-        childCoordinators.append(weatherCoordinator)
+        store(coordinator: weatherCoordinator)
         weatherCoordinator.start()
     }
     
