@@ -2,7 +2,7 @@
 //  UIImageView+Extension.swift
 //  Assesment
 //
-//  Created by mayanak on 22/02/21.
+//  Created by Mayank Juyal on 22/02/21.
 //
 
 import UIKit

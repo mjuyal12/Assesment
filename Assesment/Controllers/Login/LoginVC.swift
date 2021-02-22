@@ -14,14 +14,12 @@ class LoginVC: UIViewController {
     
     var viewModel: LoginViewModel?
     var didTapLogin: (() -> Void)?
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setUpHeader()
         configureVM()
-        usernameTextField.text = "joiint-1@stun.joiint.com"
-        passwordTextField.text = "joiint"
     }
     
     private func setUpHeader() {

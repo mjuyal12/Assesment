@@ -8,6 +8,7 @@
 import UIKit
 
 protocol Coordinator: class {
+    // Child Coordinators storing child for each coordinator
     var childCoordinators: [Coordinator] { get }
     func start()
 }

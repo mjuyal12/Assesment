@@ -37,7 +37,6 @@ class WeatherDetailCoordinator: NSObject, Coordinator, UINavigationControllerDel
             return
         }
         if let _ = fromController as? WeatherDetailsVC {
-            //self.childDidFinish(self)
             removeCoordinator?(self)
         }
     }

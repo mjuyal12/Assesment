@@ -13,17 +13,6 @@ class WeatherTVC: UITableViewCell {
     @IBOutlet weak var tempDescriptionLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
     func configure(_ weather: WeatherModel) {
         cityNameLabel.text = weather.name
         tempDescriptionLabel.text = weather.weather?.first?.main
