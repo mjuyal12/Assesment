@@ -12,28 +12,35 @@ class WeatherDetailsVC: UIViewController {
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var weatherLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
+    @IBOutlet weak var weatherImageView: UIImageView!
     
     var viewModel: WeatherDetailsViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        setupHeader()
+        //setupHeader()
         configureVM()
     }
     
     private func setupHeader() {
-        self.title = "Details"
-        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureVM() {
-        viewModel.updateUI { [weak self] (cityName, weather, temp) in
+        viewModel.updateUI { [weak self] (cityName, weather, temp, iconURL) in
             guard let strongSelf = self else {return}
-            strongSelf.cityLabel.text = cityName
-            strongSelf.weatherLabel.text = weather
-            strongSelf.tempLabel.text = String(format: "%.2f", (temp ?? 0))
+            strongSelf.updateView(cityName: cityName,
+                                  weather: weather,
+                                  temp: temp,
+                                  iconURL: iconURL)
         }
     }
 
+    private func updateView(cityName: String?, weather: String?, temp: Float?, iconURL: String?) {
+        title = cityName
+        weatherLabel.text = weather
+        tempLabel.text = temp?.toDegree
+        weatherImageView.setIcon(usingURL: iconURL ?? "")
+    }
 }

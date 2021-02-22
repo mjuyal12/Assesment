@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="xTd-TX-zwV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Vmx-aM-Uyv">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -7,22 +7,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Chat-->
-        <scene sceneID="4cp-LD-Rr9">
-            <objects>
-                <viewController storyboardIdentifier="ChatVC" id="D4L-Wj-75d" customClass="ChatVC" customModule="Assesment" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="3uN-eX-Cz7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="5nK-zZ-sAW"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="message" catalog="system" selectedImage="message.fill" id="KQH-wM-gNU"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IPt-TC-x1S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-574" y="603"/>
-        </scene>
         <!--Weather-->
         <scene sceneID="hNZ-J7-AhM">
             <objects>
@@ -31,7 +15,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gsi-9d-sjw">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="gsi-9d-sjw">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -65,11 +49,21 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eHh-km-MFZ" userLabel="SepView">
+                                                    <rect key="frame" x="12" y="117.5" width="390" height="0.5"/>
+                                                    <color key="backgroundColor" white="0.67000000000000004" alpha="0.40000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="0.5" id="TnZ-Ay-8HO"/>
+                                                    </constraints>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="eHh-km-MFZ" firstAttribute="leading" secondItem="Zot-jc-Plm" secondAttribute="leading" constant="12" id="8O0-qz-ZDv"/>
                                                 <constraint firstAttribute="trailing" secondItem="EqO-tC-IT9" secondAttribute="trailing" id="BBq-XQ-TBE"/>
+                                                <constraint firstAttribute="trailing" secondItem="eHh-km-MFZ" secondAttribute="trailing" constant="12" id="ET3-Ht-g5w"/>
                                                 <constraint firstItem="EqO-tC-IT9" firstAttribute="leading" secondItem="Zot-jc-Plm" secondAttribute="leading" id="KMu-ou-3cd"/>
                                                 <constraint firstAttribute="bottom" secondItem="EqO-tC-IT9" secondAttribute="bottom" constant="18" id="Tja-rS-6m9"/>
+                                                <constraint firstAttribute="bottom" secondItem="eHh-km-MFZ" secondAttribute="bottom" id="jA9-2E-BVC"/>
                                                 <constraint firstItem="EqO-tC-IT9" firstAttribute="top" secondItem="Zot-jc-Plm" secondAttribute="top" constant="18" id="v9s-8U-On8"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -104,20 +98,6 @@
             </objects>
             <point key="canvasLocation" x="-762.31884057971024" y="-104.46428571428571"/>
         </scene>
-        <!--Tab BarVC-->
-        <scene sceneID="3sF-Ro-a1P">
-            <objects>
-                <tabBarController storyboardIdentifier="TabBarVC" id="xTd-TX-zwV" customClass="TabBarVC" customModule="Assesment" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="K0F-PV-rTD">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Wqn-du-Bdu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1427" y="204"/>
-        </scene>
         <!--Weather DetailsVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -129,14 +109,15 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8BD-xj-Fqd" userLabel="ContainerView">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gad-1T-UMf">
-                                        <rect key="frame" x="169" y="54" width="76.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PCs-SQ-jCA">
+                                        <rect key="frame" x="36" y="36" width="80" height="80"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="80" id="YFJ-kV-prL"/>
+                                            <constraint firstAttribute="width" secondItem="PCs-SQ-jCA" secondAttribute="height" id="fjS-2T-5m4"/>
+                                        </constraints>
+                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="orv-vo-ctE">
-                                        <rect key="frame" x="36" y="174" width="342" height="53"/>
+                                        <rect key="frame" x="36" y="178" width="342" height="53"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="wVR-ag-lgI">
                                                 <rect key="frame" x="0.0" y="0.0" width="342" height="20.5"/>
@@ -177,13 +158,11 @@
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstItem="gad-1T-UMf" firstAttribute="top" secondItem="8BD-xj-Fqd" secondAttribute="top" constant="54" id="6bf-nF-t8A"/>
-                                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="gad-1T-UMf" secondAttribute="trailing" constant="18" id="8Fr-2z-DLI"/>
+                                    <constraint firstItem="PCs-SQ-jCA" firstAttribute="top" secondItem="8BD-xj-Fqd" secondAttribute="top" constant="36" id="2eq-Lb-47u"/>
                                     <constraint firstAttribute="trailing" secondItem="orv-vo-ctE" secondAttribute="trailing" constant="36" id="FrH-n7-eD1"/>
-                                    <constraint firstItem="orv-vo-ctE" firstAttribute="top" secondItem="gad-1T-UMf" secondAttribute="bottom" constant="84" id="NOI-zE-2YM"/>
-                                    <constraint firstItem="gad-1T-UMf" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8BD-xj-Fqd" secondAttribute="leading" constant="18" id="YWd-JG-SMf"/>
+                                    <constraint firstItem="orv-vo-ctE" firstAttribute="top" secondItem="PCs-SQ-jCA" secondAttribute="bottom" constant="62" id="TJ2-Q5-8Hd"/>
                                     <constraint firstItem="orv-vo-ctE" firstAttribute="leading" secondItem="8BD-xj-Fqd" secondAttribute="leading" constant="36" id="iRw-RN-br1"/>
-                                    <constraint firstItem="gad-1T-UMf" firstAttribute="centerX" secondItem="8BD-xj-Fqd" secondAttribute="centerX" id="ltR-V5-sNb"/>
+                                    <constraint firstItem="PCs-SQ-jCA" firstAttribute="leading" secondItem="8BD-xj-Fqd" secondAttribute="leading" constant="36" id="um1-Mb-srE"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -197,8 +176,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="cityLabel" destination="gad-1T-UMf" id="K2W-aS-S00"/>
                         <outlet property="tempLabel" destination="dDE-xi-ZLJ" id="wQR-9r-sS0"/>
+                        <outlet property="weatherImageView" destination="PCs-SQ-jCA" id="Vai-Cs-B6B"/>
                         <outlet property="weatherLabel" destination="SCD-i2-cav" id="O0R-UX-twh"/>
                     </connections>
                 </viewController>
@@ -276,7 +255,5 @@
     <resources>
         <image name="cloud.sun.rain" catalog="system" width="128" height="118"/>
         <image name="cloud.sun.rain.fill" catalog="system" width="128" height="118"/>
-        <image name="message" catalog="system" width="128" height="113"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
     </resources>
 </document>

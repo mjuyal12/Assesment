@@ -26,7 +26,6 @@ class WeatherVC: UIViewController {
     
     private func configureHeader() {
         self.title = "Weather"
-        navigationController?.navigationBar.prefersLargeTitles = true
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     

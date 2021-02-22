@@ -13,10 +13,17 @@ class WeatherDetailsViewModel {
     
     var weatherDetails: WeatherModel?
     
-    typealias UpdateValues = ((String?, String?, Float?) -> Void)
+    typealias UpdateValues = ((String?, String?, Float?, String?) -> Void)
     
     func updateUI(compeltion: UpdateValues) {
-        compeltion(weatherDetails?.name, weatherDetails?.weather?.first?.main, weatherDetails?.main?.temp)
+        compeltion(weatherDetails?.name, weatherDetails?.weather?.first?.main, weatherDetails?.main?.temp, getImageRL())
+    }
+    
+    private func getImageRL() -> String? {
+        if let weatherIcon = weatherDetails?.weather?.first?.icon {
+            return String(format: ServiceConstant.weatherIconURL, weatherIcon)
+        }
+        return nil
     }
     
 }

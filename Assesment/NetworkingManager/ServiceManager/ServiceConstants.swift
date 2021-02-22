@@ -11,6 +11,7 @@ import Foundation
 struct ServiceConstant {
     static let weatherURL = "http://api.openweathermap.org/data/2.5/weather"
     static let weatherKey = "95adf29e9ca919fbf077447bbee7d3ec"
+    static let weatherIconURL = "https://openweathermap.org/img/w/%@.png"
 }
 
 /// Network error

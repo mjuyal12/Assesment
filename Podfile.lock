@@ -5,6 +5,9 @@ PODS:
   - CocoaLumberjack/Core (3.7.0)
   - CocoaLumberjack/Swift (3.7.0):
     - CocoaLumberjack/Core
+  - Kingfisher (5.14.1):
+    - Kingfisher/Core (= 5.14.1)
+  - Kingfisher/Core (5.14.1)
   - KissXML (5.3.1):
     - KissXML/All (= 5.3.1)
   - KissXML/Additions (5.3.1):
@@ -25,6 +28,7 @@ PODS:
     - XMPPFramework/default
 
 DEPENDENCIES:
+  - Kingfisher
   - SVProgressHUD
   - XMPPFramework/Swift
 
@@ -32,6 +36,7 @@ SPEC REPOS:
   trunk:
     - CocoaAsyncSocket
     - CocoaLumberjack
+    - Kingfisher
     - KissXML
     - libidn
     - SVProgressHUD
@@ -40,11 +45,12 @@ SPEC REPOS:
 SPEC CHECKSUMS:
   CocoaAsyncSocket: 694058e7c0ed05a9e217d1b3c7ded962f4180845
   CocoaLumberjack: e8955b9d337ac307103b0a34fd141c32f27e53c5
+  Kingfisher: 8050bc6f7f68cbf3908bd04df7ccbac188f6d6d6
   KissXML: 5c8e0f2e8b9f071d3e1ae123dec3eb5da615c10c
   libidn: e4576a956b797c584c77aaedfc6e3dd639b61bdc
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   XMPPFramework: 5d31ff9f73dce031b24bc49bcf88093627a3a86e
 
-PODFILE CHECKSUM: 857de1d06b71e8bb3ecef8bd0d1a14faa3885f99
+PODFILE CHECKSUM: c6e0d5dd65e5cc8216ea0003ee58973fb2a19b19
 
-COCOAPODS: 1.8.4
+COCOAPODS: 1.9.3

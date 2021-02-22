@@ -21,6 +21,8 @@ class LoginVC: UIViewController {
         // Do any additional setup after loading the view.
         setUpHeader()
         configureVM()
+        usernameTextField.text = "joiint-1@stun.joiint.com"
+        passwordTextField.text = "joiint"
     }
     
     private func setUpHeader() {

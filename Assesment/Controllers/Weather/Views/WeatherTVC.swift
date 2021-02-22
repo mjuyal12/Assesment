@@ -27,8 +27,7 @@ class WeatherTVC: UITableViewCell {
     func configure(_ weather: WeatherModel) {
         cityNameLabel.text = weather.name
         tempDescriptionLabel.text = weather.weather?.first?.main
-        let temp = weather.main?.temp ?? 0
-        tempLabel.text = String(format: "%.2f", temp)
+        tempLabel.text = weather.main?.temp?.toDegree
     }
 
 }

@@ -8,6 +8,7 @@ target 'Assesment' do
   # Pods for Assesment
   pod 'XMPPFramework/Swift'
   pod 'SVProgressHUD'
+  pod 'Kingfisher'
   
   target 'AssesmentTests' do
     inherit! :search_paths
