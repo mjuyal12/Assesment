@@ -19,7 +19,13 @@ class LoginVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        setUpHeader()
         configureVM()
+    }
+    
+    private func setUpHeader() {
+        self.title = "Login"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureVM() {

@@ -10,12 +10,25 @@ import UIKit
 
 class CoreDataManager {
     
+    struct CoreDataConstant {
+        static let model = "Assesment"
+        static let entity = "WeatherList"
+        
+        enum Keys: String {
+            case weather = "weather"
+            
+            var string: String {
+                return self.rawValue
+            }
+        }
+    }
+    
     static let shared = CoreDataManager()
     
     private init() {}
     
     lazy var persistentContainer: NSPersistentContainer = {
-        let persistentContainer = NSPersistentContainer(name: "Assesment")
+        let persistentContainer = NSPersistentContainer(name: CoreDataConstant.model)
         persistentContainer.loadPersistentStores { (_, error) in
             print(error?.localizedDescription ?? "")
         }
@@ -27,22 +40,19 @@ class CoreDataManager {
     }
     
     func saveWeather(data: Data) {
-        let entity = NSEntityDescription.entity(forEntityName: "WeatherList", in: moc)
-        let newObject = NSManagedObject(entity: entity!, insertInto: moc)
-        //let weatherList = WeatherList(context: moc)
-        newObject.setValue(data, forKey: "weather")
-        if moc.hasChanges {
-            do {
-                try moc.save()
-            } catch {
-                print(error.localizedDescription)
-            }
+        if let fetchedWeatherList = fetchWeatherDetails(),
+            !fetchedWeatherList.isEmpty {
+            fetchedWeatherList[0].setValue(data, forKey: CoreDataConstant.Keys.weather.string)
+        } else {
+            let weatherList = WeatherList(context: moc)
+            weatherList.setValue(data, forKey: CoreDataConstant.Keys.weather.string)
         }
+        saveContext()
     }
     
     func fetchWeatherDetails() -> [WeatherList]? {
         do {
-            let fetchRequest = NSFetchRequest<WeatherList>(entityName: "WeatherList")
+            let fetchRequest = NSFetchRequest<WeatherList>(entityName: CoreDataConstant.entity)
             let object = try moc.fetch(fetchRequest)
             print(object)
             return object
@@ -63,7 +73,8 @@ class CoreDataManager {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                //fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+                print("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }

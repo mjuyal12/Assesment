@@ -15,9 +15,13 @@ class WeatherVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureHeader()
         configureVM()
         addObserver()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configureHeader()
     }
     
     private func configureHeader() {
