@@ -14,7 +14,7 @@ enum XMPPManagerError: Error {
     var message: String {
         switch self {
         case .wrongJID:
-            return "Your user name is wrong"
+            return AppStrings.invalidUsername.string
         }
     }
 }

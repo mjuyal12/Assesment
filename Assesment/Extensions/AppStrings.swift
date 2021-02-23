@@ -15,6 +15,7 @@ enum AppStrings: String {
     case emptyFields = "Fields cannot be empty"
     case authenticating = "Authenticating..."
     case ok = "Ok"
+    case invalidUsername = "Your user name is wrong"
     
     var string: String {
         return self.rawValue

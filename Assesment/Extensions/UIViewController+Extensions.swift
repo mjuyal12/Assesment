@@ -17,6 +17,7 @@ extension UIViewController {
         return controller
     }
     
+    /**Show Alert on controller*/
     func showAlert(withTitle title: String?, andMessage message: String?, on queue: DispatchQueue = .main) {
         queue.async {
             let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
