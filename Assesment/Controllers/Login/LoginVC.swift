@@ -24,14 +24,14 @@ class LoginVC: UIViewController {
     
     // MARK: - Private Method(s)
     private func setUpHeader() {
-        self.title = "Login"
+        self.title = AppStrings.navLogin.string
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     private func configureVM() {
         viewModel?.failure = { [weak self] (message) in
             guard let strongSelf = self else {return}
-            strongSelf.showAlert(withTitle: "Error", andMessage: message)
+            strongSelf.showAlert(withTitle: AppStrings.error.string, andMessage: message)
         }
     }
     

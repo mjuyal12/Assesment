@@ -29,7 +29,7 @@ class CoreDataManager {
     private init() {}
     
     /// NSPersistentContainer - Contains the Core data Store
-    lazy var persistentContainer: NSPersistentContainer = {
+    lazy private var persistentContainer: NSPersistentContainer = {
         let persistentContainer = NSPersistentContainer(name: CoreDataConstant.model)
         persistentContainer.loadPersistentStores { (_, error) in
             print(error?.localizedDescription ?? "")
@@ -38,7 +38,7 @@ class CoreDataManager {
     }()
     
     /// NSManagedObjectContext - Object
-    var moc: NSManagedObjectContext {
+    private var moc: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     

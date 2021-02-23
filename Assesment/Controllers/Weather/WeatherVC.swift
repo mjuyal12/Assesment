@@ -26,14 +26,14 @@ class WeatherVC: UIViewController {
     
     // MARK: - Private Method(s)
     private func configureHeader() {
-        self.title = "Weather"
+        self.title = AppStrings.navWeather.string
         self.navigationItem.setHidesBackButton(true, animated: true)
     }
     
     private func configureVM() {
         viewModel.error = { [weak self] (message) in
             guard let strongSelf = self else {return}
-            strongSelf.showAlert(withTitle: "Error", andMessage: message)
+            strongSelf.showAlert(withTitle: AppStrings.error.string, andMessage: message)
         }
         viewModel.fetchedDetails = { [weak self] in
             self?.weatherTableView.reloadData()
