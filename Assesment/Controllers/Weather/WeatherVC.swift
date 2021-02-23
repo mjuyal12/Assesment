@@ -33,7 +33,7 @@ class WeatherVC: UIViewController {
     private func configureVM() {
         viewModel.error = { [weak self] (message) in
             guard let strongSelf = self else {return}
-            Utility.showAlert(withTitle: "Error", andMessage: message, on: strongSelf)
+            strongSelf.showAlert(withTitle: "Error", andMessage: message)
         }
         viewModel.fetchedDetails = { [weak self] in
             self?.weatherTableView.reloadData()

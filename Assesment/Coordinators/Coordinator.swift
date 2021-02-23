@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+/**Protocol to manage Coordinator*/
 protocol Coordinator: class {
     // Child Coordinators storing child for each coordinator
     var childCoordinators: [Coordinator] { get }

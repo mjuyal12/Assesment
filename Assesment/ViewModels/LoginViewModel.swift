@@ -7,7 +7,7 @@
 
 import Foundation
 
-class LoginViewModel {
+class LoginViewModel: ViewModel {
     
     var failure: ((String) -> Void)?
     var success: (() -> Void)?
@@ -18,18 +18,18 @@ class LoginViewModel {
         if let username = username,
            let password = password, !username.isBlank(), !password.isBlank() {
             do {
-                Utility.showLoader(withMessage: nil)
+                showLoader(withMessage: nil)
                 try XMPPManager.shared.connectUsername(username, password: password, completion: { [weak self] (isAuthenticated) in
-                    Utility.hideLoader()
+                    self?.hideLoader()
                     self?.coordinator?.moveToTab()
                 })
             } catch {
-                Utility.hideLoader()
+                hideLoader()
                 print(error.localizedDescription)
                 failure?(error.localizedDescription)
             }
         } else {
-            Utility.hideLoader()
+            hideLoader()
             failure?("Fields cannot be empty")
         }
     }

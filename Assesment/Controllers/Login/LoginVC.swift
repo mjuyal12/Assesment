@@ -31,7 +31,7 @@ class LoginVC: UIViewController {
     private func configureVM() {
         viewModel?.failure = { [weak self] (message) in
             guard let strongSelf = self else {return}
-            Utility.showAlert(withTitle: "Error", andMessage: message, on: strongSelf)
+            strongSelf.showAlert(withTitle: "Error", andMessage: message)
         }
     }
     
