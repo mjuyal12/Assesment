@@ -23,7 +23,7 @@ class WeatherCoordinator: Coordinator {
         let weatherViewModel = WeatherViewModel()
         weatherViewModel.coordinator = self
         weatherVC.viewModel = weatherViewModel
-        navigationController.pushViewController(weatherVC, animated: false)
+        navigationController.pushViewController(weatherVC, animated: true)
     }
     
     func navigateToDetails(withData weatherData: WeatherModel) {

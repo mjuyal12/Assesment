@@ -42,7 +42,6 @@ class WeatherViewModel {
                 case .failure(let error):
                     self?.serviceManager.cancel()
                     self?.error?(error.message)
-                    break
                 }
                 group.leave()
             }
