@@ -61,12 +61,3 @@ class ServiceManager {
     }
     
 }
-
-extension Data {
-    
-    func decoded<T: Decodable>(as type: T.Type = T.self) throws -> T {
-        let decoder = JSONDecoder()
-        return try decoder.decode(T.self, from: self)
-    }
-    
-}

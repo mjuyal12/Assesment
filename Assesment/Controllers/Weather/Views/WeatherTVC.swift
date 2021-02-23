@@ -13,6 +13,7 @@ class WeatherTVC: UITableViewCell {
     @IBOutlet weak var tempDescriptionLabel: UILabel!
     @IBOutlet weak var tempLabel: UILabel!
     
+    /**Configure Data to cell*/
     func configure(_ weather: WeatherModel) {
         cityNameLabel.text = weather.name
         tempDescriptionLabel.text = weather.weather?.first?.main

@@ -24,6 +24,7 @@ class WeatherVC: UIViewController {
         configureHeader()
     }
     
+    // MARK: - Private Method(s)
     private func configureHeader() {
         self.title = "Weather"
         self.navigationItem.setHidesBackButton(true, animated: true)
@@ -40,18 +41,19 @@ class WeatherVC: UIViewController {
         viewModel.fetchWeatherDetails()
         viewModel.localDBWeatherDetails()
     }
-    
+    /**Adding Observer to the view controller for background*/
     private func addObserver() {
         let notificationCenter = NotificationCenter.default
         notificationCenter.addObserver(self, selector: #selector(appMovedToBackground), name: UIApplication.didEnterBackgroundNotification, object: nil)
     }
-    
+    /**Save data moved to Background*/
     @objc private func appMovedToBackground() {
         print("App moved to background!")
         viewModel.saveWeatherDetails()
     }
 
 }
+
 // MARK: - UITableViewDataSource & UITableViewDelegate
 extension WeatherVC: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

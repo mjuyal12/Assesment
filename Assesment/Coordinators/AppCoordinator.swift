@@ -7,6 +7,7 @@
 
 import UIKit
 
+/**App coordinator Main coordinator to start the flow*/
 class AppCoordinator: Coordinator {
     
     private (set) var childCoordinators: [Coordinator] = []

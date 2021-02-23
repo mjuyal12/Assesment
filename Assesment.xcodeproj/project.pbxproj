@@ -291,8 +291,8 @@
 		7E88927D25E0DF7E005A3EA8 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7E88927E25E0DF90005A3EA8 /* WeatherViewModel.swift */,
 				7E8FD1F025E2027E00308590 /* LoginViewModel.swift */,
+				7E88927E25E0DF90005A3EA8 /* WeatherViewModel.swift */,
 				7E8FD25D25E235D900308590 /* WeatherDetailsViewModel.swift */,
 			);
 			path = ViewModels;

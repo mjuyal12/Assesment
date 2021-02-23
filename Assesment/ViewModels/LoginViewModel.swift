@@ -13,25 +13,23 @@ class LoginViewModel {
     var success: (() -> Void)?
     var coordinator: LoginCoordinator?
     
+    /**Handle login to XMPP server*/
     func callLoginToXMPP(username: String?, password: String?) {
         if let username = username,
            let password = password, !username.isBlank(), !password.isBlank() {
             do {
                 Utility.showLoader(withMessage: nil)
-
                 try XMPPManager.shared.connectUsername(username, password: password, completion: { [weak self] (isAuthenticated) in
                     Utility.hideLoader()
                     self?.coordinator?.moveToTab()
                 })
             } catch {
                 Utility.hideLoader()
-
                 print(error.localizedDescription)
                 failure?(error.localizedDescription)
             }
         } else {
             Utility.hideLoader()
-
             failure?("Fields cannot be empty")
         }
     }

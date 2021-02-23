@@ -22,6 +22,7 @@ class LoginVC: UIViewController {
         configureVM()
     }
     
+    // MARK: - Private Method(s)
     private func setUpHeader() {
         self.title = "Login"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -34,7 +35,9 @@ class LoginVC: UIViewController {
         }
     }
     
+    // MARK: - IBAction(s)
     @IBAction func clickedLogin(_ sender: UIButton) {
+        self.view.endEditing(true)
         viewModel?.callLoginToXMPP(username: usernameTextField.text, password: passwordTextField.text)
     }
     

@@ -27,8 +27,8 @@ class XMPPManager: NSObject {
     }
     
     static let shared = XMPPManager()
-    private var xmppStream: XMPPStream
     
+    private var xmppStream: XMPPStream
     private var password: String?
     
     var authenticationSuccessful: ((Bool) -> Void)?
@@ -41,7 +41,7 @@ class XMPPManager: NSObject {
         super.init()
         xmppStream.addDelegate(self, delegateQueue: DispatchQueue.main)
     }
-    
+    /// Passing Username and Password
     func connectUsername(_ username: String, password: String, completion: @escaping ((Bool)->Void)) throws {
         self.authenticationSuccessful = completion
         guard let userJID = XMPPJID(string: username) else {
@@ -51,7 +51,7 @@ class XMPPManager: NSObject {
         xmppStream.myJID = userJID
         connect()
     }
-    
+    /// Connect to the Server
     func connect() {
         if !xmppStream.isDisconnected {
             authenticationSuccessful?(false)
@@ -67,7 +67,9 @@ class XMPPManager: NSObject {
     
 }
 
+// MARK: - XMPPStreamDelegate
 extension XMPPManager: XMPPStreamDelegate {
+    
     func xmppStreamDidConnect(_ sender: XMPPStream) {
         print("Stream : Connected")
         if let password = password {

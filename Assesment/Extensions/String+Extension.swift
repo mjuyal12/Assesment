@@ -8,18 +8,15 @@
 import Foundation
 
 extension String {
-    
     /// Check for the string if is empty
     /// - Returns: Bool if empty
     func isBlank() -> Bool {
         let trimmed = self.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         return trimmed.isEmpty
     }
-    
 }
 
 extension Float {
-    
     /// Converts and shows unit
     var toDegree: String {
         let doubleValue = Double(self)
@@ -29,5 +26,12 @@ extension Float {
         let stringTemp = formatter.string(from: measurement)
         return stringTemp
     }
-    
+}
+
+extension Data {
+    /// Decoding the data value to readable model
+    func decoded<T: Decodable>(as type: T.Type = T.self) throws -> T {
+        let decoder = JSONDecoder()
+        return try decoder.decode(T.self, from: self)
+    }
 }

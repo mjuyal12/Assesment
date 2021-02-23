@@ -20,6 +20,7 @@ class WeatherDetailsVC: UIViewController {
         configureVM()
     }
     
+    // MARK: - Private Method(s)
     private func configureVM() {
         viewModel.updateUI { [weak self] (cityName, weather, temp, iconURL) in
             guard let strongSelf = self else {return}

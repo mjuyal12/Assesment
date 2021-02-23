@@ -7,6 +7,7 @@
 
 import UIKit
 
+/**WeatherDetailCoordinator handles Weather Details Flow*/
 class WeatherDetailCoordinator: NSObject, Coordinator, UINavigationControllerDelegate {
     
     private (set) var childCoordinators: [Coordinator] = []

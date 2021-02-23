@@ -28,6 +28,7 @@ class WeatherViewModel {
         return weatherDetails.count
     }
     
+    /**Fetches Weather details for the Cities*/
     func fetchWeatherDetails() {
         let group = DispatchGroup()
         
@@ -50,13 +51,12 @@ class WeatherViewModel {
         group.notify(queue: DispatchQueue.main) {
             self.fetchedDetails?()
         }
-        
     }
     
     func getWeather(at index: Int) -> WeatherModel {
         return weatherDetails[index]
     }
-    
+    /**Handling save details to Core Data*/
     func saveWeatherDetails() {
         do {
             let jsonEncoder = JSONEncoder()
@@ -67,6 +67,7 @@ class WeatherViewModel {
         }
     }
     
+    /**Handling Fetching saved details in Core Data*/
     func localDBWeatherDetails() {
         let details = CoreDataManager.shared.fetchWeatherDetails()
         if let unwrappedDetails = details?.first,

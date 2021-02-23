@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ Models used to show the details for the Weather
+ */
 struct WeatherModel: Codable {
     var name: String?
     var weather: [Weather]?

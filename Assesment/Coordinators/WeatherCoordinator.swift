@@ -7,6 +7,7 @@
 
 import UIKit
 
+/**WeatherCoordinator handles Weather Controller Flow*/
 class WeatherCoordinator: Coordinator {
     
     private (set) var childCoordinators: [Coordinator] = []

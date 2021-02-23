@@ -194,7 +194,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="5cp-yl-Ils">
-                                <rect key="frame" x="62" y="361" width="290" height="152"/>
+                                <rect key="frame" x="62" y="325" width="290" height="152"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7s0-bD-bHT">
                                         <rect key="frame" x="0.0" y="0.0" width="290" height="40"/>
@@ -236,9 +236,9 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="Il7-VM-df0" firstAttribute="centerY" secondItem="d5p-I5-zhM" secondAttribute="centerY" id="2ZI-IX-0iS"/>
                             <constraint firstItem="7s0-bD-bHT" firstAttribute="width" secondItem="QHA-Bp-CGa" secondAttribute="width" multiplier="0.7" id="AE2-jV-w7f"/>
                             <constraint firstItem="5cp-yl-Ils" firstAttribute="centerX" secondItem="d5p-I5-zhM" secondAttribute="centerX" id="cy7-2J-eMy"/>
-                            <constraint firstItem="5cp-yl-Ils" firstAttribute="centerY" secondItem="d5p-I5-zhM" secondAttribute="centerY" constant="-16" id="k7H-dH-8OD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="d5p-I5-zhM"/>
                     </view>

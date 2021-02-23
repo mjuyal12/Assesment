@@ -7,6 +7,7 @@
 
 import UIKit
 
+/**Login Coordinator hnadles login flow*/
 class LoginCoordinator: Coordinator {
     
     private (set) var childCoordinators: [Coordinator] = []
